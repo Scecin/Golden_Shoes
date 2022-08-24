@@ -46,7 +46,10 @@ const Total = styled.div`
     flex-grow: 1;
 `
 
-const Remove = styled.p`
+const Remove= styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     &:hover {
         opacity: 0.5;
         cursor: pointer;
@@ -72,7 +75,11 @@ const ShoppingBagContainer = ({setAppState}) => {
                                 <label for="points">QUANTITY: </label>
                                 <input type="number" id="points" name="points" step="1" min="0" required></input>
                             </form>
-                            <Remove> Remove</Remove>
+                            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"></link>
+                            <Remove>
+                                <i class="bi bi-trash"></i>
+                                <p> Remove</p>
+                            </Remove>
                         </Inf>
                     </ShoeInf>
                     <hr/>
