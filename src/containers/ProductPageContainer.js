@@ -15,7 +15,7 @@ const Body = styled.div`
 `
 
 const Inf = styled.div`
-    padding: 48px;
+    padding: 0px 48px 48px;
     text-align: start;
 `
 
@@ -23,6 +23,7 @@ const ShoeInf = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 `
 
 const Button = styled.button`
@@ -80,7 +81,7 @@ const List = styled.li`
     padding-bottom:16px;
 `
 
-const ProductPageContainer = ({setAppState}) => {
+const ProductPageContainer = ({setAppState, selectedShoe}) => {
 
     return (
         <>
@@ -88,11 +89,11 @@ const ProductPageContainer = ({setAppState}) => {
             <hr/>
             <Body>
                 <ShoeInf>
-                    <Img src= "/images/women_shoes.jpg" alt="Shoes" class="image"/>
+                    <Img src= {selectedShoe.img} alt="Shoes" class="image"/>
                     <Inf>
-                        <h1> Orianna Derby Chestnut </h1>
-                        <h2> £79.99</h2>
-                        <p> COLOUR Pink</p>
+                        <h1> {selectedShoe.name} </h1>
+                        <h3> {selectedShoe.price}</h3>
+                        <p> {selectedShoe.color}</p>
                         <p> SELECT SIZE </p>
                         <Sizes>
                             <Size> 3 </Size>
@@ -117,7 +118,7 @@ const ProductPageContainer = ({setAppState}) => {
                 <Card>
                     <Description>
                         <h3> Description </h3>
-                        <p>A super-chunky sole is the on-trend finishing touch to chic burgundy leather lace-up Orianna Derby. Perfectly balancing style and practicality, this low-profile shoe is designed for all-day comfort wear, with the rugged rubber sole adding maximum grip and durability. Minimal side stitching adds to the authentically crafted aesthetic</p>
+                        <p>{selectedShoe.description}</p>
                     </Description>
                     <DeliberyInf>
                         <h3> Delivery & Return</h3>

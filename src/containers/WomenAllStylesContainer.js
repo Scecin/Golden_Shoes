@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ProductItem from "../components/ProductItem";
 
 const HeaderStyle = styled.div`
     display: flex;
@@ -24,6 +25,12 @@ const Button = styled.button`
     padding: 8px;
 `
 
+const Body = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 const ShoesList = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -31,63 +38,15 @@ const ShoesList = styled.div`
     padding:48px;
 `
 
-const Img = styled.img`
-    width: 70%;
-    &:hover {
-        opacity: 0.5;
-        cursor: pointer;
-    }
-`
+const WomenAllStylesContainer = ({setAppState, shoes, onShoeClick}) => {
 
-const ShoeContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width:500px;
-    padding-bottom:48px;
-`
+    // const hadleClickProductPage = () => {
+    //     setAppState("ProductPageContainer")
+    // }
 
-const Text = styled.p`
-    margin: 3px;
-    margin-left: 16px;
-    font-size: small;
-`
-
-const ShoeName = styled.h3`
-    font-size: medium;
-    margin: 8px;
-`
-
-const ShoeInformation = styled.div`
-    display: flex;
-    flex-direction: row;
-`
-
-const ShoePrice = styled.div`
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    margin-left: 160px; 
-`
-
-const Price = styled.h3`
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    margin: 8px;
-    font-size: medium;
-`
-const Body = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-    
-const WomenAllStylesContainer = ({setAppState}) => {
-
-    const hadleClickProductPage = () => {
-        setAppState("ProductPageContainer")
-    }
-
+    const productListNodes = shoes.map((shoe, index) => {
+        return <ProductItem key={index} shoe={shoe} setAppState={setAppState} onShoeClick={onShoeClick}/>
+    })
     return (
         <>
             <Header setAppState={setAppState}/>
@@ -99,88 +58,11 @@ const WomenAllStylesContainer = ({setAppState}) => {
                     <input type="search" id="id"></input>
                 </SearchBar>
             </HeaderStyle>
-            <Body>
+            <Body> 
                 <ShoesList>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
-                    <ShoeContainer>
-                        <Img src= "/images/women_shoes.jpg" alt="Women" class="image" onClick={hadleClickProductPage}/>
-                        <ShoeInformation>
-                            <div>
-                                <ShoeName> Amazing Shoes</ShoeName>
-                                <Text> Women Shoes</Text>
-                                <Text> Colour Black </Text>
-                            </div>
-                            <ShoePrice>
-                                <Price> £79,99 </Price>
-                            </ShoePrice>
-                        </ShoeInformation>
-                    </ShoeContainer>
+                    {productListNodes}
                 </ShoesList>
-                <Button>View More</Button>
+                <Button>View More</Button> 
             </Body>
             <hr/>
             <Footer setAppState={setAppState}/>
