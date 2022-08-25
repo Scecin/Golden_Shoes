@@ -94,7 +94,8 @@ const Header = ({setAppState, totalItems}) => {
                     <Link>
                         <li onClick={handleClickShoppingBag} >Shopping Bag</li>
                         <i class="bi bi-bag"></i>
-                        <Counter>{totalItems}</Counter>
+                        {totalItems > 0 ? 
+                        <Counter>{totalItems}</Counter> : <div></div>}
                     </Link>
                 </ResourcesBar>
             </NavigationBar>
