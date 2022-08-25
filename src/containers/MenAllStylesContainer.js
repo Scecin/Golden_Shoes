@@ -38,61 +38,20 @@ const ShoesList = styled.div`
     padding:48px;
 `
 
-const Div = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-left: 48px;
-    &:hover {
-        opacity: 0.5;
-        cursor: pointer;
-    }
-`
+const MenAllStylesContainer = ({setAppState, menShoes, onShoeClick, totalItems}) => {
 
-const Icon = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 8px;
-`
-
-const Label = styled.label`
-    padding: 16px;
-`
-
-const Select = styled.select`
-    padding: 8px;
-`
-
-const WomenAllStylesContainer = ({setAppState, womenShoes, onShoeClick, totalItems}) => {
-
-    const productListNodes = womenShoes.map((shoe, index) => {
+    const productListNodes = menShoes.map((shoe, index) => {
         return <ProductItem key={index} shoe={shoe} setAppState={setAppState} onShoeClick={onShoeClick}/>
     })
-
-    const handleClickBackButton = () => {
-        setAppState("WomenHomeContainer")
-    }
-
     return (
         <>
             <Header setAppState={setAppState} totalItems={totalItems}/>
-            <Div>
-                <Icon><i class="bi bi-arrow-left"></i></Icon>
-                <p onclick={handleClickBackButton}> Back </p>
-            </Div>
             <hr/>
             <HeaderStyle>
                 <h3> All Filters </h3>
                 <SearchBar>
-                    <Label for="SortBy">Sort By:</Label>
-                    <Select name="cars" id="cars">
-                        <option value="relevance">Relevance</option>
-                        <option value="newest">Newest</option>
-                        <option value="highest">Highest Rated</option>
-                        <option value="a_z">A-Z</option>
-                        <option value="z_a">Z-A</option>
-                        <option value="price_low">Price (Low-High) </option>
-                        <option value="price_low">Price (High-Low) </option>
-                    </Select>
+                    <label for="SortBy">Sort By </label>
+                    <input type="search" id="id"></input>
                 </SearchBar>
             </HeaderStyle>
             <Body> 
@@ -106,4 +65,4 @@ const WomenAllStylesContainer = ({setAppState, womenShoes, onShoeClick, totalIte
         </>
     )
 }
-export default WomenAllStylesContainer;
+export default MenAllStylesContainer;

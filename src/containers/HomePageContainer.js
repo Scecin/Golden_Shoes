@@ -11,7 +11,7 @@ const GenderImages = styled.div`
     margin-bottom: 32px;
 `
 
-const HomePageContainer = ({setAppState}) => {
+const HomePageContainer = ({setAppState, totalItems}) => {
 
     const handleClickWomen = () => {
         setAppState("WomenHomeContainer")
@@ -25,7 +25,7 @@ const HomePageContainer = ({setAppState}) => {
 
     return (
         <>
-            <Header setAppState={setAppState}/>
+            <Header setAppState={setAppState} totalItems={totalItems}/>
             <hr/>
             <div class="bigContainer">
                 <img src= "/images/sale_shoes.jpg" alt="Sale" class="image"/>

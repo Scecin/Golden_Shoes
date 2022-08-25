@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Header from "../components/Header"; 
+import Modal from "../components/Modal";
 
 const Img = styled.img`
     width: 30%;
@@ -43,12 +44,25 @@ const Sizes = styled.div`
 `
 
 const Size = styled.button`
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     width: 60px;
+    font-size: medium;
     text-align: center;
-    padding: 8px;
+    padding: 16px;
+    margin: 4px;
+    background: white;
+    border-radius: 5px;
     &:hover {
-        opacity: 0.5;
+        opacity: 0.8;
         cursor: pointer;
+        background: #125688;
+        color: white;
+        font-weight: bold;
+    }
+    &:focus {
+        background: #125688;
+        color: white;
+        font-weight: bold;
     }
 `
 
@@ -81,12 +95,18 @@ const List = styled.li`
     padding-bottom:16px;
 `
 
-const ProductPageContainer = ({setAppState, selectedShoe}) => {
+const ProductPageContainer = ({setAppState, selectedShoe, addShoeBasket, totalItems, showModal, setShowModal}) => {
 
+    const handleAddToBagButton = (() => {
+        addShoeBasket(selectedShoe)
+        setShowModal(prev => !prev)
+    })
+    
     return (
         <>
-            <Header setAppState={setAppState}/>
+            <Header setAppState={setAppState} totalItems={totalItems}/>
             <hr/>
+            <Modal showModal={showModal} setShowModal={setShowModal} selectedShoe={selectedShoe} />
             <Body>
                 <ShoeInf>
                     <Img src= {selectedShoe.img} alt="Shoes" class="image"/>
@@ -108,11 +128,12 @@ const ProductPageContainer = ({setAppState, selectedShoe}) => {
                             <Size> 7.5 </Size>
                             <Size> 8 </Size>
                         </Sizes>
-                        <form action="/action_page.php">
-                            <label for="points">QUANTITY: </label>
-                            <input type="number" id="points" name="points" step="1" min="0" required></input>
-                        </form>
-                        <Button>Add to Bag</Button>
+                        <Button onClick={handleAddToBagButton}>Add to Bag</Button>
+                        {/* <div class="modal-bg">
+                            <div class="modal">
+                                <h2>Hello</h2>
+                            </div>
+                        </div> */}
                     </Inf>
                 </ShoeInf>
                 <Card>

@@ -51,7 +51,7 @@ const Counter = styled.div`
     border-radius: 20%;
 `
 
-const Header = ({setAppState}) => {
+const Header = ({setAppState, totalItems}) => {
 
     const handleClickWomen = () => {
         setAppState("WomenHomeContainer")
@@ -75,6 +75,7 @@ const Header = ({setAppState}) => {
         <>
             <NavigationBar>
                 <GenderBar>
+                    <Link onClick={handleClickHomePage} ><i class="bi bi-house-door"></i></Link>
                     <Link onClick={handleClickWomen}>Women</Link>
                     <Link onClick={handleClickMen}>Men</Link>
                     <Link onClick={handleClickKids}>Kids</Link>
@@ -93,7 +94,7 @@ const Header = ({setAppState}) => {
                     <Link>
                         <li onClick={handleClickShoppingBag} >Shopping Bag</li>
                         <i class="bi bi-bag"></i>
-                        <Counter>0</Counter>
+                        <Counter>{totalItems}</Counter>
                     </Link>
                 </ResourcesBar>
             </NavigationBar>
