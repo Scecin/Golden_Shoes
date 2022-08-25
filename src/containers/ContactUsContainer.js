@@ -52,7 +52,7 @@ const Input= styled.input`
 
 const BigInput= styled.textarea`
     margin: 16px;
-    width: 706px;
+    width: 675px;
     height: 200px;
     resize: none;
     padding: 8px;
