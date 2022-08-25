@@ -72,7 +72,7 @@ const ShoppingBagContainer = ({setAppState, basketList, deleteShoeBasket, totalI
                         <p> SIZE </p>
                         <p> {shoe.price}</p>
                         <form action="/action_page.php">
-                            <label for="points">QUANTITY: </label>
+                            <label for="points">Quantity: </label>
                             <input type="number" id="points" name="points" step="1" min="0" required></input>
                         </form>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"></link>
