@@ -63,11 +63,11 @@ const ButtonContainer = styled.div`
     justify-content: flex-end;
 `
 
-const ContactUsContainer = ({setAppState}) => {
+const ContactUsContainer = ({setAppState, totalItems}) => {
 
     return (
         <>
-            <Header setAppState={setAppState}/>
+            <Header setAppState={setAppState} totalItems={totalItems}/>
             <hr/>
             <HeaderStyle> Contact Us </HeaderStyle>
             <Title>We'd love to hear from you</Title>

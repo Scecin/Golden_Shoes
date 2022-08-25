@@ -16,45 +16,49 @@ const H3 = styled.h3`
     margin-left: 48px;
 `
 
-const KidsHomeContainer = ({setAppState}) => {
+const KidsHomeContainer = ({setAppState, totalItems}) => {
+
+    const handleClickStyles = () => {
+        setAppState("KidsAllStylesContainer")
+    }
 
     return (
         <>
-            <Header setAppState={setAppState}/>
+            <Header setAppState={setAppState} totalItems={totalItems}/>
             <H3>KIDS</H3>
             <hr/>
-            <div class="container">
+            <div onClick={handleClickStyles} class="container">
                 <img src= "/images/all_styles.jpg" alt="Sale" class="image"/>
                 <div class="middle">
                     <button class="text">ALL STYLES</button>
                 </div>
             </div>
             <GenderImages>
-                <div class="container">
+                <div onClick={handleClickStyles} class="container">
                     <img src= "/images/sale_shoes.jpg" alt="Sales" class="image"/>
                     <div class="middle">
                         <button class="text">SALES</button>
                     </div>
                 </div>
-                <div class="container">
+                <div onClick={handleClickStyles} class="container">
                     <img src= "/images/kids_shoes2.jpg" alt="Shoes" class="image"/>
                     <div class="middle">
                         <button class="text">SHOES</button>
                     </div>
                 </div>
-                <div class="container">
+                <div onClick={handleClickStyles} class="container">
                     <img src= "/images/kids_boots.jpg" alt="Boots" class="image"/>
                     <div class="middle">
                         <button class="text">Boots</button>
                     </div>
                 </div>
-                <div class="container">
+                <div onClick={handleClickStyles} class="container">
                     <img src= "/images/kids_trainers.jpg" alt="Trainers" class="image"/>
                     <div class="middle">
                         <button class="text">TRAINERS</button>
                     </div>
                 </div>
-                <div class="container">
+                <div onClick={handleClickStyles} class="container">
                     <img src= "/images/kids_sandals.jpg" alt="Sandals" class="image"/>
                     <div class="middle">
                         <button class="text">Sandals</button>

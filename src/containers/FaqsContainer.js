@@ -38,7 +38,7 @@ const Card = styled.div`
     }
 `
 
-const FaqsContainer = ({setAppState}) => {
+const FaqsContainer = ({setAppState, totalItems}) => {
 
     const handleClickContactUs = () => {
         setAppState("ContactUsContainer")
@@ -46,7 +46,7 @@ const FaqsContainer = ({setAppState}) => {
 
     return (
         <>
-            <Header setAppState={setAppState}/>
+            <Header setAppState={setAppState} totalItems={totalItems}/>
             <hr/>
             <HeaderStyle> FAQ's </HeaderStyle>
             <Body>
