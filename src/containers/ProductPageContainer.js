@@ -97,7 +97,7 @@ const List = styled.li`
 
 const ProductPageContainer = ({setAppState, selectedShoe, addShoeBasket, totalItems, showModal, setShowModal}) => {
 
-    const handleAddToBagButton = (() => {
+    const handleAddToBagButton = ((event) => {
         addShoeBasket(selectedShoe)
         setShowModal(prev => !prev)
     })
