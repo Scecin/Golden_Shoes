@@ -92,10 +92,17 @@ const Button = styled.input`
 const Quantity = styled.div`
     display: flex;
     flex-direction: row;
-    padding-top: 16px;
+    padding-top: 8px;
+    justify-content: space-between;
 `
-const Buttons = styled.div`
-    margin: 8px;
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Buttons = styled.button`
+    margin-left: 8px;
+    margin-right: 8px;
 `
 
 const ShoppingBagContainer = ({setAppState, basketList, deleteShoeBasket, totalItems}) => {
@@ -124,7 +131,7 @@ const ShoppingBagContainer = ({setAppState, basketList, deleteShoeBasket, totalI
     const decrementQuantity = () => {
         if(quantity > 1) {
         setCuantity(prevQuan => prevQuan-1)
-    }
+        }
     }
 
     const basketNodes = basketList.map((shoe, index) => {
@@ -136,11 +143,12 @@ const ShoppingBagContainer = ({setAppState, basketList, deleteShoeBasket, totalI
                         <p> SIZE </p>
                         <p> {shoe.price}</p>
                         <Quantity>
-                            <div class="quantity">Quantity {quantity}</div>
-                            <Buttons className="btns">
-                                <button onClick={incrementQuantity}>+</button>
-                                <button onClick={decrementQuantity}>-</button>
-                            </Buttons>
+                            <Quantity>Quantity</Quantity>
+                            <Div>
+                                <Buttons onClick={incrementQuantity}>+</Buttons>
+                                <p>{quantity}</p>
+                                <Buttons onClick={decrementQuantity}>-</Buttons>
+                            </Div>
                         </Quantity>
                         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"></link>
                         <Remove>

@@ -14,12 +14,10 @@ const ShoeContainer = styled.div`
     flex-direction: column;
     max-width:400px;
     padding:48px;
-    align-items: center;
 `
 
 const Text = styled.p`
-    margin: 3px;
-    margin-left: 16px;
+    margin: 8px;
     font-size: small;
 `
 
@@ -30,7 +28,9 @@ const ShoeName = styled.h3`
 
 const ShoeInformation = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 16px;
 `
 
 const ShoePrice = styled.div`
@@ -48,6 +48,11 @@ const Price = styled.h3`
     font-size: medium;
 `
 
+const Div = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
 const ProductItem = ({setAppState, shoe, onShoeClick}) => {
 
     const hadleClickProductPage = (() => {
@@ -58,16 +63,18 @@ const ProductItem = ({setAppState, shoe, onShoeClick}) => {
     return (
         <>
             <ShoeContainer>
-                <Img src={shoe.img} alt={shoe.img} onClick={hadleClickProductPage}/>
+                <Img src={shoe.img} alt= "ShoeImg" onClick={hadleClickProductPage}/>
                 <ShoeInformation>
-                    <div>
-                        <ShoeName> {shoe.name}</ShoeName>
-                        <Text> {shoe.style}</Text>
-                        <Text> {shoe.color} </Text>
-                    </div>
-                    <ShoePrice>
-                        <Price> {shoe.price}</Price>
-                    </ShoePrice>
+                    <ShoeName> {shoe.name}</ShoeName>
+                    <Div>
+                        <div>
+                            <Text> {shoe.style}</Text>
+                            <Text> {shoe.color} </Text>
+                        </div>
+                        <ShoePrice>
+                            <Price> {shoe.price}</Price>
+                        </ShoePrice>
+                        </Div>
                 </ShoeInformation>
             </ShoeContainer>
         </>
