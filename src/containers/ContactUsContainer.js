@@ -46,13 +46,14 @@ const Label= styled.label`
 `
 
 const Input= styled.input`
+    width: 600px;
     margin: 16px;
     padding: 8px;
 `
 
 const BigInput= styled.textarea`
     margin: 16px;
-    width: 675px;
+    width: 600px;
     height: 200px;
     resize: none;
     padding: 8px;

@@ -129,11 +129,6 @@ const ProductPageContainer = ({setAppState, selectedShoe, addShoeBasket, totalIt
                             <Size> 8 </Size>
                         </Sizes>
                         <Button onClick={handleAddToBagButton}>Add to Bag</Button>
-                        {/* <div class="modal-bg">
-                            <div class="modal">
-                                <h2>Hello</h2>
-                            </div>
-                        </div> */}
                     </Inf>
                 </ShoeInf>
                 <Card>
